@@ -3,12 +3,13 @@ package com.github.nogueiralegacy.ds.newton;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class CalculadoraTest {
+class AproximacaoDeNewtonTest {
     @Test
-    void raizQuadradaTest() {
+    void TestAproximacaoDeNewtonValido() {
         double numero = 25;
-        double precisao = Math.pow(10, -5);
 
-        assertEquals(5, Calculadora.aproximacaoDeNewton(numero, precisao));
+        Matematica matematica = new AproximacaoDeNewton();
+
+        assertEquals(5, matematica.sqrt(numero));
     }
 }
