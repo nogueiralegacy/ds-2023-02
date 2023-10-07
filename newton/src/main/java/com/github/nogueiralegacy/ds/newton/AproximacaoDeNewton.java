@@ -1,7 +1,13 @@
 package com.github.nogueiralegacy.ds.newton;
 
-public class AproximacaoDeNewton implements Matematica{
-    private static final double precisao = Math.pow(10, -5);
+import java.util.function.Function;
+
+public class AproximacaoDeNewton implements Function<Double, Double> {
+    private final double precisao = Math.pow(10, -5);
+    @Override
+    public Double apply(Double numero) {
+        return sqrt(numero);
+    }
     public double sqrt(double numero) {
         double aproximacao = numero;
 

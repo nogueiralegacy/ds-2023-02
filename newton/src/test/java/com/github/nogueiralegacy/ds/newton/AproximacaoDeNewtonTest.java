@@ -8,8 +8,8 @@ class AproximacaoDeNewtonTest {
     void TestAproximacaoDeNewtonValido() {
         double numero = 25;
 
-        Matematica matematica = new AproximacaoDeNewton();
+       AproximacaoDeNewton newton = new AproximacaoDeNewton();
 
-        assertEquals(5, matematica.sqrt(numero));
+        assertEquals(5, newton.sqrt(numero));
     }
 }
