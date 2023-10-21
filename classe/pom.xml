@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.github.ds</groupId>
+  <artifactId>classe</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>classe</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+      <maven.compiler.source>11</maven.compiler.source>
+      <maven.compiler.target>11</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <mainClass>com.github.nogueiralegacy.ds.App</mainClass>
+  </properties>
+
+
+  <build>
+    <plugins>
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>3.0.0</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>java</goal>
+                    </goals>
+                </execution>
+            </executions>
+            <configuration>
+                <!-- Configuração da classe principal -->
+                <mainClass>${mainClass}</mainClass>
+
+                <arguments>
+                    <argument>App</argument>
+                    <argument>C:\users\danie\projects</argument>
+                    <!-- Adicione mais argumentos conforme necessário -->
+                </arguments>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+
+</project>
