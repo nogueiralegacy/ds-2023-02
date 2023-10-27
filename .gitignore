@@ -40,3 +40,9 @@ application.properties
 application.yml
 application-dev.properties
 application-prod.properties
+
+#VS Code
+.vscode/
+
+#IntelliJ IDEA
+.idea/
