@@ -2,13 +2,11 @@ package com.github.nogueiralegacy.ds.anotacao;
 
 public interface ItemObservado {
     // metodo adicionar
-    void adicionar(Comprador observador);
+    void adicionar(Observador observador);
     // metodo remover
-    void remover(Comprador observador);
+    void remover(Observador observador);
     // metodo notificar
     void notificar();
-
-    double getPreco();
-
-    void setPreco(double preco);
+    // metodo para retornar o identificador
+    String getIdentificador();
 }

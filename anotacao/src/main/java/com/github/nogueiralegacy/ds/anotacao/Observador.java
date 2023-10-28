@@ -1,12 +1,5 @@
 package com.github.nogueiralegacy.ds.anotacao;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-
-@Target(ElementType.TYPE)
-@Retention(RetentionPolicy.RUNTIME)
-public @interface Observador {
-    Class<?>[] itensObservados() default {};
+public interface Observador {
+    public void update();
 }
