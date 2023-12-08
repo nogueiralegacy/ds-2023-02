@@ -38,7 +38,8 @@ desse horário deve ser referente ao novo país selecionado.
 
 ## Casos de uso
 
-## Diagrama de classes
+## Modelo de dados
+![modelo de dados país](image/pais.png)
 
 ## Arquitetura
 
