@@ -41,7 +41,11 @@ desse horário deve ser referente ao novo país selecionado.
 
 ## Casos de uso
 
-![usecase](http://www.plantuml.com/plantuml/png/JOun3i8m34LtdyBgtahb0AWI6pi7i18JYa8SEQuO47SdQQbW-thFrlzJCL9R7X78cIXsPmdI8HMyrm1_bBpeBbe6K7P6AKJ6LHE-O2dig31scMAUZRQFosdy6UMI9NdUrG7U0FK21o_FD1mRGcZjsEiSRjQl2Bwrs4U-Rco4YPElspy0)
+![usecase](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/nogueiralegacy/ds-2023-02/main/termo/image/plantuml/usecase.puml)
+
+- Palpitar: ação do usuário que seleciona um país, de sua escolha, e envia para o jogo como tentativa de acertar o país do dia.
+
+- Responder: ação do jogo que retorna a resposta de cada palpite do usuário, indicando se o usuário acertou ou não, caso o usuário tiver errado é fornecido a comparação do país que ele palpitou com o país do dia.
 
 ## Dados releventas da perspectiva do usuário para adivinhar um país
 ![userview](/termo/image/pais.png)
@@ -51,4 +55,7 @@ desse horário deve ser referente ao novo país selecionado.
 
 ## Arquitetura
 
+
 ## Tecnologias
+- Java
+- Spring-Boot Web
