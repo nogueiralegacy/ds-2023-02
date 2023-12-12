@@ -41,13 +41,13 @@ desse horário deve ser referente ao novo país selecionado.
 
 ## Casos de uso
 
-![usecase](//www.plantuml.com/plantuml/png/JOun3i8m34LtdyBgtahb0AWI6pi7i18JYa8SEQuO47SdQQbW-thFrlzJCL9R7X78cIXsPmdI8HMyrm1_bBpeBbe6K7P6AKJ6LHE-O2dig31scMAUZRQFosdy6UMI9NdUrG7U0FK21o_FD1mRGcZjsEiSRjQl2Bwrs4U-Rco4YPElspy0)
+![usecase](http://www.plantuml.com/plantuml/png/JOun3i8m34LtdyBgtahb0AWI6pi7i18JYa8SEQuO47SdQQbW-thFrlzJCL9R7X78cIXsPmdI8HMyrm1_bBpeBbe6K7P6AKJ6LHE-O2dig31scMAUZRQFosdy6UMI9NdUrG7U0FK21o_FD1mRGcZjsEiSRjQl2Bwrs4U-Rco4YPElspy0)
 
 ## Dados releventas da perspectiva do usuário para adivinhar um país
-![userview](/image/pais.png)
+![userview](/termo/image/pais.png)
 
 # Modelo de dados
-![modelo de dados país](/image/DER.png)
+![modelo de dados país](/termo/image/DER.png)
 
 ## Arquitetura
 
