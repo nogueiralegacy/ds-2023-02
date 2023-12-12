@@ -1,0 +1,14 @@
+@startuml
+actor "Jogo" as jogo
+
+actor "Jogador" as jogador
+
+rectangle Jogada {
+usecase "palpitar" as UC1
+usecase "responder" as UC2
+}
+
+UC1 .down.> UC2 
+jogo -right-> UC2
+jogador -left-> UC1
+@enduml
