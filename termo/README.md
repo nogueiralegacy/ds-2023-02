@@ -2,7 +2,7 @@
 
 ## Descrição
 Um jogo voltado para a adivinhação de um país.
-O jogo seleciona um país e o jogador tenta adivinhar o país com paupites. O jogo
+O jogo seleciona um país e o jogador tenta adivinhar o país com palpites. O jogo
 fornece dicas para o jogador, referentes da comparação do país fornecido pelo jogador
 e o país selecionado pelo jogo.
 
@@ -15,10 +15,12 @@ e o país selecionado pelo jogo.
 - O jogador tem um limite de tentativas?
 
 ## Regras de negócio
+- O jogo é feito para brasileiros
 - Um país é selecionado todo dia aleatorimente para ser jogado, 00:00
 horário de brasília, é feita a seleção de um novo país, qualquer palpite novo a partir 
 desse horário deve ser referente ao novo país selecionado.
 - A cada três messes os dados dos países são atualizados, caso tenham alguma mudança.
+- O usuário ter de ter conexão com a internet
 
 ## Requisitos
 - O sistema deve ser capaz de selecionar um país aleatoriamente, diariamente.
