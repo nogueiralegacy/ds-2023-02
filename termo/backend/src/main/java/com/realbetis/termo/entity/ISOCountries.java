@@ -1,4 +1,4 @@
-package com.realbetis.termo.domain;
+package com.realbetis.termo.entity;
 
 import java.util.HashMap;
 import java.util.Locale;

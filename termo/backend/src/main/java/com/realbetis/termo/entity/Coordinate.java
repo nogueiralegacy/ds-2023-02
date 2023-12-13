@@ -1,9 +1,9 @@
-package com.realbetis.termo.domain;
+package com.realbetis.termo.entity;
 
 import lombok.Data;
 
 @Data
-public class Coordenada {
+public class Coordinate {
     private String latitude;
     private String longitude;
 }
