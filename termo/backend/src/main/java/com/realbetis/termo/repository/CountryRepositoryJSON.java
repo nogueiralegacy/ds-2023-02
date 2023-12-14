@@ -1,54 +1,44 @@
 package com.realbetis.termo.repository;
 
+import com.google.gson.Gson;
 import com.realbetis.termo.entity.Country;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+import com.realbetis.termo.utils.DTOCountryInput;
+import com.realbetis.termo.utils.Utils;
+
 import org.springframework.stereotype.Repository;
 
-import java.io.FileNotFoundException;
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Repository
 public class CountryRepositoryJSON implements CountryRepository{
+    Gson gson = new Gson();
+    Path countriesPath = new Utils().getPath("countries.json");
 
-    private JSONParser jsonParser = new JSONParser();
-    private static final List<Country> countries = new ArrayList<>();
-    public List<Country> findAll(){
 
-        try(FileReader fileReader = new FileReader("src/main/resources/realbetis_countries.json")){
+    //TODO Esse método deveria retornar um Map com chave sendo o code e o country como valor
+    // facilitando as operações de busca
+    public List<Country> findAll() {
+        DTOCountryInput[] dtoCountryInputs = null;
 
-            Object obj = jsonParser.parse(fileReader);
+        try (BufferedReader reader = new BufferedReader(new FileReader(countriesPath.toString()))) {
 
-            JSONArray countriesList = (JSONArray) obj;
-
-            countriesList.forEach(country -> parseCountryObject((JSONObject) country));
-
-        }
-        catch(FileNotFoundException e){
+            dtoCountryInputs = gson.fromJson(reader, DTOCountryInput[].class);
+        } catch (IOException e) {
             e.printStackTrace();
         }
-        catch (ParseException e){
-            e.printStackTrace();
-        }
-        catch (IOException e){
-            e.printStackTrace();
+
+        List<Country> countries = new ArrayList<>();
+
+        for (DTOCountryInput dto : dtoCountryInputs) {
+            countries.add(dto.toCountry());
         }
 
         return countries;
     }
-
-    private static void parseCountryObject(JSONObject jsonObject){
-        Country country = new Country();
-
-        JSONObject nestedNameObject = (JSONObject) jsonObject.get("name");
-        country.setName((String) nestedNameObject.get("common"));
-
-        countries.add(country);
-    }
-
 }

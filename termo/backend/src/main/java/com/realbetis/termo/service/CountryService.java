@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public class CountryService {
 
-    private CountryRepositoryJSON repository;
+    private final CountryRepositoryJSON repository;
 
     public CountryService(CountryRepositoryJSON repository) {
         this.repository = repository;
