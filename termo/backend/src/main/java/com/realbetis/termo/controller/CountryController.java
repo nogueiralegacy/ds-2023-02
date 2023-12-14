@@ -8,5 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/country")
 public class CountryController {
 
+    @GetMapping
+    public String view() {
+        return "Estou aqui";
+    }
 
 }
