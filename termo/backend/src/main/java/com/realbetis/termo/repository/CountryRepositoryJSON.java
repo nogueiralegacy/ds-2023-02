@@ -20,7 +20,8 @@ public class CountryRepositoryJSON implements CountryRepository{
     private static final List<Country> countries = new ArrayList<>();
     public List<Country> findAll(){
 
-        try(FileReader fileReader = new FileReader("src/main/resources/filtered_countries.json")){
+        try(FileReader fileReader = new FileReader("src/main/resources/realbetis_countries.json")){
+
             Object obj = jsonParser.parse(fileReader);
 
             JSONArray countriesList = (JSONArray) obj;
