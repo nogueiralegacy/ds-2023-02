@@ -21,6 +21,7 @@ public class CountryRepositoryJSON implements CountryRepository{
     public List<Country> findAll(){
 
         try(FileReader fileReader = new FileReader("src/main/resources/realbetis_countries.json")){
+
             Object obj = jsonParser.parse(fileReader);
 
             JSONArray countriesList = (JSONArray) obj;
