@@ -59,3 +59,31 @@ desse horário deve ser referente ao novo país selecionado.
 ## Tecnologias
 - Java
 - Spring-Boot Web
+
+## Decisões
+- porque da implementação de 1 request por chute
+A implementação escolhida foi uma implementação server-side com o cliente comunicando com o servidor através de requisições HTTP. Ao utilizar tal implementação o usuário fica dependente de uma conexão estável com a internet para que possa utilizar o sistema sem nenhum problema além da manutenção do servidor que hospedará a aplicação. Para contrabalancear, a implementação permite uma centralização dos serviços o que fornece uma maior facilidade de manutenção e escalabilidade, permite também a utilização de serviços externos em futuras atualizações como fontes externas de dados ou monetização com anúncios.
+
+- como fazer essa implementação
+Para implementar utilizando Spring Boot e servidores em nuvem, primeiramente desenvolveria a lógica do jogo e endpoints no Spring Boot para gerenciar as requisições dos usuários, incluindo a lógica de sorteio diário de países e fornecimento de dicas. Em seguida, utilizaria serviços de nuvem como AWS, Google Cloud ou Azure para hospedar o aplicativo Spring Boot. Utilizaria recursos de balanceamento de carga e autoescalonamento dos serviços em nuvem para lidar com picos de tráfego, assegurando assim uma infraestrutura escalável e confiável para suportar o jogo de adivinhação diária dos países.
+Em futuras atualizações seria ainda possível usar ferramentas de contêineres como Docker e orquestração com Kubernetes, empacotar o aplicativo em contêineres para facilitar a implantação e escalabilidade
+
+- porque da escolha de usar JSON
+Decidimos pela não utilização de nenhuma plataforma de banco de dados, guardando todos os dados necessários em um arquivo JSON. Optamos pelo JSON por vários motivos:
+São poucos dados a serem armazenados
+É um tipo de arquivo leve e simples
+Pode ser facilmente alterado possibilitando uma manutenibilidade dos dados dos países
+Não requer nenhum tipo de sgbd
+Quando são poucos dados é bastante performático
+Portabilidade e Compatibilidade universal
+
+
+
+- como fazer a implementação do uso de JSON
+- requisitos não funcionais
+
+
+
+//ACHO QUE JÁ FOI ABORDADO ACIMA
+- arquitetura no geral abordando servidor/escalabilidade/serviços externos
+- porque não utilizar a implementação client-side
