@@ -81,3 +81,22 @@ Para implementar utilizando Spring Boot e servidores em nuvem, primeiramente des
 - Armazenamento dos dados em JSON  
 
 Decidimos pela não utilização de nehum SGBD, guardando todos os dados necessários em um arquivo JSON. Optamos pelo JSON por se tratar de uma baixa quantidade de dados, sem perspectiva de alteração nesse fator, portabilidade e compatibilidade universal.
+
+## Fluxo de Atividade
+
+O usuário, através de uma caixa de texto, digitar o nome comum (nome pelo qual o país é conhecido informalmente) de um país dentre os 195 que fazem parte das nações unidas. Após preencher o nome corretamente com o auxílio de um Autocomplete, ele terá a opção de fazer um palpite com o país digitado, ao clicar no botão, o palpite é enviado. O conceito principal do jogo é fazer com que o usuário acerte o país escolhido pelo sistema (escolha essa feita de maneira arbitrária em um determinado horário) no menor número de tentativas possível. Após enviar o palpite o sistema recebe-o através de uma requisição HTTP e realiza a comparação de cada atributo do sistema entre o país palpitado pelo usuário e o selecionado pelo sistema, todos os atributos são não-subjetivos, ou seja, obrigatoriamente retornarão uma resposta objetiva e útil para o usuário (ex.: maior\menor | verdadeiro\falso).
+O sistema após a comparação retornará um objeto que conterá a comparação de cada atributo e a partir dessas comparações o usuário poderá ter melhor noção do país alvo.
+
+### Exemplo de Fluxo:
+- O sistema realiza a escolha do país e o país alvo escolhido é o Togo, país esse fora do conhecimento do usuário
+- O usuário realiza o seu primeiro palpite, digita na barra “Brasil” e clica em palpitar
+- O sistema recebe o palpite e realiza a comparação dos atributos:
+- Coordenadas (maior/menor): divididas em latitude e longitude, retorna para o usuário a disparidade de ambas, latitude e longitude do país palpitado com o país alvo.
+- Presença de faixa litorânea (verdadeiro/falso): retorna para o usuário se o país palpitado possui a mesma presença de faixa litorânea que o país alvo. Ex: caso o país alvo possua faixa litorânea e o palpitado não ou vice versa, retorna para o usuário o valor falso, caso ambos possuam ou ambos não possuam, retorna verdadeiro
+- Fronteiriço (verdadeiro/falso): retorna para o usuário verdadeiro caso o país palpitado faça fronteira com o país alvo, retorna
+- Continente (verdadeiro/falso): retorna para o usuário verdadeiro caso o país palpitado esteja no mesmo continente que o país alvo, retorna falso caso contrário.
+- Habitantes (maior/menor): retorna para o usuário a disparidade de habitantes entre o país palpitado e o país alvo
+- Área (maior/menor): retorna para o usuário a disparidade da área do país palpitado com o país alvo
+- IDH  (maior/menor): retorna para o usuário a disparidade do IDH do país palpitado com o país alvo.
+- PIB (maior/menor): retorna para o usuário a disparidade do PIB do país palpitado com o país alvo.
+- O sistema retorna as comparações citadas acima e através dela o usuário pode realizar um palpite mais preciso.
