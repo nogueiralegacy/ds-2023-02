@@ -15,12 +15,13 @@ e o país selecionado pelo jogo.
 - O jogador tem um limite de tentativas?
 
 ## Regras de negócio
-- O jogo é feito para brasileiros
+- O jogo é feito para brasileiros.
 - Um país é selecionado todo dia aleatorimente para ser jogado, 00:00
 horário de brasília, é feita a seleção de um novo país, qualquer palpite novo a partir 
 desse horário deve ser referente ao novo país selecionado.
 - A cada três messes os dados dos países são atualizados, caso tenham alguma mudança.
-- O usuário ter de ter conexão com a internet
+- O usuário ter de ter conexão com a internet.
+- O usuário pode jogar acertar o país do dia apenas uma vez.
 
 ## Requisitos
 ### Funcionais
@@ -40,7 +41,6 @@ desse horário deve ser referente ao novo país selecionado.
 ### Não Funcionais  
 | ID | Descrição | 
 | ------------- | ------------- |
-
 | 001 | O sistema deve ser capaz de suportar mais de 1000 usuários simultâneos. |
 | 002 | O sistema deve ser capaz de suportar mais de 1000 palpites por segundo. |
 | 003 | O sistema deve suportar mudanças dos dados dos países sem a necessidade de parar o sistema. |
@@ -58,19 +58,21 @@ desse horário deve ser referente ao novo país selecionado.
 ![userview](/termo/image/pais.png)
 
 # Modelo de dados
-![modelo de dados país](/termo/image/DER.png)
+![modelo de dados país](/termo/image/DER-new.png)
 
 ## Arquitetura
+![entidades](/termo/image/Entidades.png)
 
+- A API recebe apenas a entidade país, através de um endpoint, e retorna apenas a entidade comparação. Para a primeira entidade recebemos o identificador único do país que é conhecido pelo auto complete da interface, a partir do nome do país. E para a segunda, respondemos para o cliente todos os atributos de país e qual o seu nível de semelhança entre país do dia versus país palpitado.
 
 ## Tecnologias
 - Java
 - Spring-Boot Web
 
 ## Decisões
-- O servidor é responsável por fazer a comparação do país palpitado com o país do dia. 
+- A API é responsável por fazer a comparação do país palpitado com o país do dia. 
 
-A implementação escolhida foi uma implementação server-side com o cliente comunicando com o servidor através de requisições HTTP. Ao utilizar tal implementação o usuário fica dependente de uma conexão estável com a internet para que possa utilizar o sistema sem nenhum problema além da manutenção do servidor que hospedará a aplicação. Para contrabalancear, a implementação permite uma centralização dos serviços o que fornece uma maior facilidade de manutenção e escalabilidade dinâmica, permite também a utilização de serviços externos em futuras atualizações como fontes externas de dados ou monetização com anúncios.
+- A implementação escolhida foi uma implementação server-side com o cliente comunicando com o servidor através de requisições HTTP. Ao utilizar tal implementação o usuário fica dependente de uma conexão estável com a internet para que possa utilizar o sistema sem nenhum problema além da manutenção do servidor que hospedará a aplicação. Para contrabalancear, a implementação permite uma centralização dos serviços o que fornece uma maior facilidade de manutenção e escalabilidade dinâmica, permite também a utilização de serviços externos em futuras atualizações como fontes externas de dados ou monetização com anúncios.
 
 - Tecnologias  
 
@@ -79,6 +81,3 @@ Para implementar utilizando Spring Boot e servidores em nuvem, primeiramente des
 - Armazenamento dos dados em JSON  
 
 Decidimos pela não utilização de nehum SGBD, guardando todos os dados necessários em um arquivo JSON. Optamos pelo JSON por se tratar de uma baixa quantidade de dados, sem perspectiva de alteração nesse fator, portabilidade e compatibilidade universal.
-
-## Arquitetura
-
