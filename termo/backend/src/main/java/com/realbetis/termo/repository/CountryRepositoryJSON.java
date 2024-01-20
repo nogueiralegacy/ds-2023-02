@@ -11,9 +11,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 @Repository
 public class CountryRepositoryJSON implements CountryRepository{
@@ -23,7 +21,7 @@ public class CountryRepositoryJSON implements CountryRepository{
 
     //TODO Esse método deveria retornar um Map com chave sendo o code e o country como valor
     // facilitando as operações de busca
-    public List<Country> findAll() {
+    public Map<String, Country> findAll() {
         DTOCountryInput[] dtoCountryInputs = null;
 
         try (BufferedReader reader = new BufferedReader(new FileReader(countriesPath.toString()))) {
@@ -33,10 +31,10 @@ public class CountryRepositoryJSON implements CountryRepository{
             e.printStackTrace();
         }
 
-        List<Country> countries = new ArrayList<>();
+        Map<String, Country> countries = new HashMap<>();
 
         for (DTOCountryInput dto : dtoCountryInputs) {
-            countries.add(dto.toCountry());
+            countries.put(dto.getIsoCode(), dto.toCountry());
         }
 
         return countries;

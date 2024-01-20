@@ -1,10 +1,10 @@
 package com.realbetis.termo.repository;
 
-import java.util.List;
+import java.util.Map;
 
 import com.realbetis.termo.entity.Country;
 
 public interface CountryRepository {
     
-    List<Country> findAll();
+    Map<String,Country> findAll();
 }

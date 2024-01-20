@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/country")
@@ -18,9 +18,9 @@ public class CountryController {
     private CountryService service;
 
     @GetMapping
-    public ResponseEntity<List<Country>> findAll(){
-        List<Country> list = this.service.findAll();
-        return ResponseEntity.ok(list);
+    public ResponseEntity<Map<String, Country>> findAll(){
+        Map<String, Country> countries = this.service.findAll();
+        return ResponseEntity.ok(countries);
     }
 
 

@@ -1,27 +1,25 @@
 # Design da aplicação
 
 ## Descrição
-Um jogo voltado para a adivinhação de um país.
-O jogo seleciona um país e o jogador tenta adivinhar o país com palpites. O jogo
-fornece dicas para o jogador, referentes da comparação do país fornecido pelo jogador
-e o país selecionado pelo jogo.
+Este é um jogo de adivinhação de países. O objetivo é que o jogador adivinhe um país específico. Durante o jogo, um país é escolhido aleatoriamente, e o jogador tenta adivinhar qual é por meio de palpites. O jogo oferece dicas para facilitar a experiência do jogador, relacionadas à comparação entre o país fornecido pelo jogador e o país escolhido aleatoriamente pelo jogo.
 
 ## Perguntas
-- DESCRIÇÃO DO SISTEMA
 - Como é feita a seleção do país pelo jogo?
+  - O país é selecionado um por dia a partir da data do sistemas.
 - Quais são as dicas que o jogador vai receber a cada palpite?
-- Quais são as dicas fornecidas pelo jogo?
+  - Todos os atributos de país (apresentado no modelo de dados)
 - Como é feita a contagem de pontos?
+  -  Pelo número de erros para cada acerto.
 - O jogador tem um limite de tentativas?
+  -  Não.
 
 ## Regras de negócio
-- O jogo é feito para brasileiros.
-- Um país é selecionado todo dia aleatorimente para ser jogado, 00:00
-horário de brasília, é feita a seleção de um novo país, qualquer palpite novo a partir 
-desse horário deve ser referente ao novo país selecionado.
-- A cada três messes os dados dos países são atualizados, caso tenham alguma mudança.
-- O usuário ter de ter conexão com a internet.
-- O usuário pode jogar acertar o país do dia apenas uma vez.
+- O jogo foi projetado para o público brasileiro.
+- Todo dia, às 00:00 horário de Brasília, o jogo seleciona aleatoriamente um novo país para ser adivinhado.
+- Qualquer palpite feito após esse horário deve ser referente ao novo país.
+- A cada três meses, os dados dos países são atualizados para refletir possíveis mudanças.
+- O usuário precisa ter uma conexão ativa com a internet para participar do jogo.
+- O usuário pode fazer palpites para acertar o país do dia, mas tem direito a apenas uma acerto diário.
 
 ## Requisitos
 ### Funcionais
@@ -44,7 +42,6 @@ desse horário deve ser referente ao novo país selecionado.
 | 001 | O sistema deve ser capaz de suportar mais de 1000 usuários simultâneos. |
 | 002 | O sistema deve ser capaz de suportar mais de 1000 palpites por segundo. |
 | 003 | O sistema deve suportar mudanças dos dados dos países sem a necessidade de parar o sistema. |
-| 004 | O sistema deve ser capaz de suportar ataques de negação de serviço. |
 
 ## Casos de uso
 
@@ -61,9 +58,9 @@ desse horário deve ser referente ao novo país selecionado.
 ![modelo de dados país](/termo/image/DER-new.png)
 
 ## Arquitetura
-![entidades](/termo/image/Entidades.png)
+![c4](/termo/image/C4-Termo.png)
 
-- A API recebe apenas a entidade país, através de um endpoint, e retorna apenas a entidade comparação. Para a primeira entidade recebemos o identificador único do país que é conhecido pelo auto complete da interface, a partir do nome do país. E para a segunda, respondemos para o cliente todos os atributos de país e qual o seu nível de semelhança entre país do dia versus país palpitado.
+- A API recebe apenas como input o identificador de país, através de um endpoint chamado por um autocomplete, e retorna um JSON de comparação para o cliente.
 
 ## Tecnologias
 - Java
@@ -81,6 +78,11 @@ Para implementar utilizando Spring Boot e servidores em nuvem, primeiramente des
 - Armazenamento dos dados em JSON  
 
 Decidimos pela não utilização de nehum SGBD, guardando todos os dados necessários em um arquivo JSON. Optamos pelo JSON por se tratar de uma baixa quantidade de dados, sem perspectiva de alteração nesse fator, portabilidade e compatibilidade universal.
+
+- Update do país diário
+
+![Diagrama em branco](https://github.com/nogueiralegacy/ds-2023-02/assets/75807715/8d3e77c6-2c34-480b-b3e5-b23c3990e7dd)
+
 
 ## Fluxo de Atividade
 
