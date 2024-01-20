@@ -82,6 +82,11 @@ Para implementar utilizando Spring Boot e servidores em nuvem, primeiramente des
 
 Decidimos pela não utilização de nehum SGBD, guardando todos os dados necessários em um arquivo JSON. Optamos pelo JSON por se tratar de uma baixa quantidade de dados, sem perspectiva de alteração nesse fator, portabilidade e compatibilidade universal.
 
+- Update do país diário
+
+![Diagrama em branco](https://github.com/nogueiralegacy/ds-2023-02/assets/75807715/8d3e77c6-2c34-480b-b3e5-b23c3990e7dd)
+
+
 ## Fluxo de Atividade
 
 O usuário, através de uma caixa de texto, digitar o nome comum (nome pelo qual o país é conhecido informalmente) de um país dentre os 195 que fazem parte das nações unidas. Após preencher o nome corretamente com o auxílio de um Autocomplete, ele terá a opção de fazer um palpite com o país digitado, ao clicar no botão, o palpite é enviado. O conceito principal do jogo é fazer com que o usuário acerte o país escolhido pelo sistema (escolha essa feita de maneira arbitrária em um determinado horário) no menor número de tentativas possível. Após enviar o palpite o sistema recebe-o através de uma requisição HTTP e realiza a comparação de cada atributo do sistema entre o país palpitado pelo usuário e o selecionado pelo sistema, todos os atributos são não-subjetivos, ou seja, obrigatoriamente retornarão uma resposta objetiva e útil para o usuário (ex.: maior\menor | verdadeiro\falso).
