@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -25,14 +26,13 @@ class TestCountryRepositoryJSON {
             .habitants(144104080)
             .build();
 
-    //TODO melhorar metodo de teste assim que conver ter o findAll para retornar um Map de (isoCode, country)
     @Test
     void testCarregamento() {
-        List<Country> countries = repository.findAll();
+        Map<String, Country> countries = repository.findAll();
 
-        for (Country country : countries) {
-            if (country.getIsoCode().equals("RU")) {
-                assertEquals(countryExpected, country);
+        for (String isoCode : countries.keySet()) {
+            if (isoCode.equals("RU")) {
+                assertEquals(countryExpected, countries.get(isoCode));
                 break;
             }
 

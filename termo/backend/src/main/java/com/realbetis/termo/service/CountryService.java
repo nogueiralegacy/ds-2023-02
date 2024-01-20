@@ -4,7 +4,7 @@ import com.realbetis.termo.entity.Country;
 import com.realbetis.termo.repository.CountryRepositoryJSON;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Map;
 
 @Service
 public class CountryService {
@@ -15,9 +15,8 @@ public class CountryService {
         this.repository = repository;
     }
 
-    public List<Country> findAll(){
+    public Map<String, Country> findAll(){
         return repository.findAll();
     }
-
 
 }
