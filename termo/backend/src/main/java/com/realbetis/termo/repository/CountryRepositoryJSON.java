@@ -21,7 +21,7 @@ public class CountryRepositoryJSON implements CountryRepository{
 
     //TODO Esse método deveria retornar um Map com chave sendo o code e o country como valor
     // facilitando as operações de busca
-    public Map<String, Country> findAll() {
+    public HashMap<String, Country> findAll() {
         DTOCountryInput[] dtoCountryInputs = null;
 
         try (BufferedReader reader = new BufferedReader(new FileReader(countriesPath.toString()))) {
@@ -31,7 +31,7 @@ public class CountryRepositoryJSON implements CountryRepository{
             e.printStackTrace();
         }
 
-        Map<String, Country> countries = new HashMap<>();
+        HashMap<String, Country> countries = new HashMap<>();
 
         for (DTOCountryInput dto : dtoCountryInputs) {
             countries.put(dto.getIsoCode(), dto.toCountry());
