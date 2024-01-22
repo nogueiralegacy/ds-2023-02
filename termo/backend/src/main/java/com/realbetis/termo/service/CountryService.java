@@ -5,11 +5,14 @@ import com.realbetis.termo.entity.CountryComparison;
 import com.realbetis.termo.repository.CountryRepositoryJSON;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
 @Service
+@EnableScheduling
 public class CountryService {
 
     private final CountryRepositoryJSON repository;
@@ -34,16 +37,25 @@ public class CountryService {
         return this.dailyCountry;
     }
 
-    @EventListener(ApplicationReadyEvent.class)
-    private void loadDataOnStartUp(){
-        this.countries = findAll();
-        System.out.println("(+) Data Loaded!");
-
+    private void randomizeCountry(){
         List<String> isoCodeList = new ArrayList<>(countries.keySet());
         Random randomizer = new Random();
 
         dailyCountry = countries.get(isoCodeList.get(randomizer.nextInt(isoCodeList.size())));
         System.out.println("(+) Country Selected!");
+    }
 
+    @EventListener(ApplicationReadyEvent.class)
+    private void loadDataOnStartUp(){
+        this.countries = findAll();
+        System.out.println("(+) Data Loaded!");
+
+        randomizeCountry();
+    }
+
+    @Scheduled(cron = "0 0 0 * * *", zone = "GMT-3")
+    public void testSchedule(){
+        System.out.println("(+) New country schedule initialized!");
+        randomizeCountry();
     }
 }
