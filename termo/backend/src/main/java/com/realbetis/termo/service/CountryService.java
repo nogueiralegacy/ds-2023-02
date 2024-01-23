@@ -42,7 +42,7 @@ public class CountryService {
         Random randomizer = new Random();
 
         dailyCountry = countries.get(isoCodeList.get(randomizer.nextInt(isoCodeList.size())));
-        System.out.println("(+) Country Selected!");
+        System.out.println("(+) New Country Selected!");
     }
 
     @EventListener(ApplicationReadyEvent.class)
@@ -54,8 +54,8 @@ public class CountryService {
     }
 
     @Scheduled(cron = "0 0 0 * * *", zone = "GMT-3")
-    public void testSchedule(){
-        System.out.println("(+) New country schedule initialized!");
+    public void updateSchedule(){
+        System.out.println("(*) Update country schedule initialized!");
         randomizeCountry();
     }
 }

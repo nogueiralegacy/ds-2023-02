@@ -17,7 +17,5 @@ public class CountryComparison implements Serializable {
     private HashMap<String, Object> continentComparison;
     private HashMap<String, Object> habitantsComparison;
     private HashMap<String, Object> areaComparison;
-    private HashMap<String, Object> hdiComparison;
-    private HashMap<String, Object> gdpComparison;
 
 }

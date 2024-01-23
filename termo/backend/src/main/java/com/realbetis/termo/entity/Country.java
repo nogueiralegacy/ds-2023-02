@@ -21,8 +21,6 @@ public class Country {
     private Continent continent;
     private int habitants;
     private double area;
-    private double HDI;
-    private double GDP;
 
     public CountryComparison compare(Country countryGuessed){
         CountryComparison comparison = new CountryComparison();
@@ -65,14 +63,6 @@ public class Country {
                         map.put("areaDiff", this.getArea() - countryGuessed.getArea());
                         comparison.setAreaComparison(map);
                         break;
-                    case "HDI":
-                        map.put("hdiDiff", this.getHDI() - countryGuessed.getHDI());
-                        comparison.setHdiComparison(map);
-                        break;
-                    case "GDP":
-                        map.put("gdpDiff", this.getGDP() - countryGuessed.getGDP());
-                        comparison.setGdpComparison(map);
-                        break;
                 }
             }
             catch(Exception e){
@@ -85,6 +75,6 @@ public class Country {
 
     @Override
     public int hashCode() {
-        return Objects.hash(isoCode, currencies, coordinate, coastal, borders, continent, habitants, area, HDI, GDP);
+        return Objects.hash(isoCode, currencies, coordinate, coastal, borders, continent, habitants, area);
     }
 }
