@@ -27,7 +27,7 @@ public class Country {
 
         comparison.setName(countryGuessed.getName());
 
-        for(Field field : countryGuessed.getClass().getFields()){
+        for(Field field : countryGuessed.getClass().getDeclaredFields()){
             HashMap<String, Object> map = new HashMap<>();
 
             try{
@@ -39,8 +39,8 @@ public class Country {
                         comparison.setCurrenciesComparison(map);
                         break;
                     case "coordinate":
-                        map.put("latitudeDiff", Objects.equals(countryGuessed.getCoordinate().getLatitude(), this.getCoordinate().getLatitude()));
-                        map.put("longitudeDiff", Objects.equals(countryGuessed.getCoordinate().getLongitude(), this.getCoordinate().getLatitude()));
+                        map.put("latitudeDiff", Math.abs(this.getCoordinate().getLatitude()) - Math.abs(countryGuessed.getCoordinate().getLatitude()));
+                        map.put("longitudeDiff", Math.abs(this.getCoordinate().getLatitude()) - Math.abs(countryGuessed.getCoordinate().getLongitude()) );
                         comparison.setCoordinateComparison(map);
                         break;
                     case "continent": 
@@ -56,11 +56,11 @@ public class Country {
                         comparison.setCoastalComparison(map);
                         break;
                     case "habitants":
-                        map.put("habitantsDiff", countryGuessed.getHabitants() - this.getHabitants());
+                        map.put("habitantsDiff", this.getHabitants() - countryGuessed.getHabitants());
                         comparison.setHabitantsComparison(map);
                         break;
                     case "area":
-                        map.put("areaDiff", countryGuessed.getArea() - this.getArea());
+                        map.put("areaDiff", this.getArea() - countryGuessed.getArea());
                         comparison.setAreaComparison(map);
                         break;
                 }

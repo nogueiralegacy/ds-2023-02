@@ -15,7 +15,6 @@ import java.util.List;
 //TODO englobar dados do IDH e PIB
 
 // WARNING: careful with null filds
-@Data
 public class DTOCountryInput {
     private String cca2;
     private boolean unMember;
@@ -71,5 +70,9 @@ public class DTOCountryInput {
 
     private List<String> resolveBorders() {
         return Arrays.asList(borders);
+    }
+
+    public String getIsoCode() {
+        return cca2;
     }
 }
